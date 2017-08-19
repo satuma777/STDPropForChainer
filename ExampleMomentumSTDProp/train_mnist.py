@@ -18,7 +18,8 @@ from chainer import iterators
 
 import numpy as np
 
-import stdprop
+import momentum_stdprop
+
 
 class MLP(chainer.Chain):
 
@@ -108,9 +109,8 @@ def main():
         model.to_gpu()  # Copy the model to the GPU
 
     # Setup an optimizer
-    optimizer = stdprop.STDProp(alpha=0.001, gamma=0.99, eps=1e-5)
+    optimizer = momentum_stdprop.MomentumSTDProp(alpha=0.001, gamma=0.99, eps=1e-5)
     optimizer.setup(model)
-    #optimizer.add_hook(chainer.optimizer.GradientNoise(eta=0.01))
 
     # Load the MNIST dataset
     train, test = chainer.datasets.get_mnist()

@@ -7,7 +7,8 @@ from chainer import optimizer
 class STDProp(optimizer.GradientMethod):
 
     """Y. Ida et al. proposed optimization algorithm.
-       See.  <http://arxiv.org/abs/1605.09593>
+       SDProp (a.k.a. STDProp) without momentum.
+       See also.  <http://arxiv.org/abs/1605.09593> or <https://www.ijcai.org/proceedings/2017/0267.pdf>
     """
 
     def __init__(self, alpha=0.001, gamma=0.99, eps=1e-5):
@@ -16,7 +17,7 @@ class STDProp(optimizer.GradientMethod):
         self.eps = eps
 
     def init_state(self, param, state):
-    	xp = cuda.get_array_module(param.data)
+        xp = cuda.get_array_module(param.data)
         with cuda.get_device(param.data):
             state['m'] = param.grad
             state['v'] = xp.zeros_like(param.data)
@@ -39,7 +40,7 @@ class STDProp(optimizer.GradientMethod):
         v = state['v']
 
         v, m = cuda.elementwise(
-        	'T grad, T alpha, T gamma, T eps, T m, T v',
+            'T grad, T alpha, T gamma, T eps, T m, T v',
             'T v_out, T m_out',
             '''v_out = (gamma * v) + (gamma * (1 - gamma) * (grad - m) * (grad - m));
                m_out = (gamma * m) + ((1 - gamma) * grad);
