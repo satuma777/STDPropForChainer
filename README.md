@@ -16,7 +16,7 @@ Basic usage:
 import stdprop
 ```
 
-SDProp wiht momentum:
+SDProp with momentum:
 ```
 import momentum_stdprop
 ```
