@@ -4,6 +4,12 @@ This paper presents SDProp: a novel training algorithm for deep neural networks.
 
 Since [the previous version of this paper](https://arxiv.org/abs/1605.09593) refers to SDProp as STDProp, the name of STDProp is used in the code.
 
+## Requirements
+Minimum requirements:
+
+- Python 2.7 or 3.4 later (This has 2 and 3 compatibility)
+- Chainer(<= 1.24.0) and minimum dependencies
+
 ## Usage
 Basic usage:
 ```
