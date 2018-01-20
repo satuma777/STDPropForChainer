@@ -23,17 +23,3 @@ import momentum_stdprop
 
 They have been created by extending [GradientMethod](http://docs.chainer.org/en/stable/_modules/chainer/optimizer.html#GradientMethod) class.
 
-## Citation
-If you find this code useful for your research, please cite:
-```
-@inproceedings{ijcai2017-267,
-  author    = {Yasutoshi Ida, Yasuhiro Fujiwara, Sotetsu Iwamura},
-  title     = {Adaptive Learning Rate via Covariance Matrix Based Preconditioning for Deep Neural Networks},
-  booktitle = {Proceedings of the Twenty-Sixth International Joint Conference on
-               Artificial Intelligence, {IJCAI-17}},
-  pages     = {1923--1929},
-  year      = {2017},
-  doi       = {10.24963/ijcai.2017/267},
-  url       = {https://doi.org/10.24963/ijcai.2017/267},
-}
-```
